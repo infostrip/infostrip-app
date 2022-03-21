@@ -21,5 +21,8 @@
       "browser",
       "android"
     ]
+  },
+  "dependencies": {
+    "ci": "^2.1.1"
   }
 }
