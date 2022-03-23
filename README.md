@@ -1,4 +1,5 @@
 # infostrip-app
+[![GitHub](https://img.shields.io/github/license/infostrip/infostrip-app?color=green)](LICENSE) [![Badge](https://img.shields.io/badge/java-v17.0.1-red)](https://www.oracle.com/java/technologies/downloads/#java17)
 
 ## Description
 This is a project for the N2 grade from the 1st bimester from Programming Language III subject of FESA (Faculdade Engenheiro Salvador Arena). If you are not familiar with this name, you can check more information about <a href="http://faculdadesalvadorarena.org.br" target="_blank">right here</a>.
@@ -40,7 +41,7 @@ and the window will pop-up in you screen.
 Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
 ## Support
-From us with <3.
+From us with &#128156;.
 
 ## Contributing
 <p align="center">
@@ -55,5 +56,5 @@ You can also document commands to lint the code or run tests. These steps help t
 
 ## License
 <p align="center">
-  This project is under MIT LICENSE policy. Copyright (c) 2022 InfosTrip.
+  Licensed under the <a href="LICENSE">MIT License</a> policy. Copyright © 2022 InfosTrip.
 </p>
