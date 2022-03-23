@@ -47,10 +47,13 @@
                     Para onde ir hoje?
                 </p>
                 <input type="text" name="txtPesquisar" id="txtSearch" placeholder="Endereço aqui" class="form-control">
+                <span class="text-danger" id="spantxtHome" style="display: none;"></span>
                 <br>
                 <button class="btn btn-outline-light" onclick="criaMapa()">Pesquisar</button>
                 <br>
                 <br>
+                <div class="spinner-border text-danger" role="status" id="spinnerHome"
+                    style="display: none; margin-left: 30%;"></div>
                 <div style="width:100%; height: 480px; display: none;" id="mapContainer"></div>
                 <br>
             </div>
@@ -119,10 +122,13 @@
             </p>
             <input type="text" name="txtLocais" id="txtInteresting" placeholder="Digite qualquer lugar"
                 class="form-control">
+            <span class="text-danger" id="spantxtInteresting" style="display: none;"></span>
             <br>
             <button class="btn btn-outline-light" onclick="sugerir()">Pesquisar</button>
             <br>
             <br>
+            <div class="spinner-border text-danger" role="status" id="spinnerLocaisInteressantes"
+                style="display: none; margin-left: 30%;"></div>
             <div style="width:100%; height: 480px; display: none;" id="mapContainerSugestao"></div>
             <br>
             <br>
@@ -178,6 +184,7 @@
             </p>
             <input type="text" name="txtPartida" id="txtBegin" placeholder="Digite qualquer lugar de início"
                 class="form-control">
+            <span class="text-danger" id="spantxtBegin" style="display: none;"></span>
             <br>
             <br>
             <p style="color: snow; font-size: 20px;">
@@ -185,9 +192,13 @@
             </p>
             <input type="text" name="txtChegada" id="txtEnd" placeholder="Digite qualquer lugar de chegada"
                 class="form-control">
+            <span class="text-danger" id="spantxtEnd" style="display: none;"></span>
+            <br>
             <button class="btn btn-outline-light" onclick="calculaRota()">Pesquisar</button>
             <br>
             <br>
+            <div class="spinner-border text-danger" role="status" id="spinnerRota"
+                style="display: none; margin-left: 30%;"></div>
             <div style="width:100%; height: 480px; display: none;" id="mapContainerRota"></div>
             <br>
             <br>
@@ -218,9 +229,12 @@
             </p>
             <input type="text" name="txtTransportes" id="txtCommuting" placeholder="Digite qualquer lugar"
                 class="form-control">
+            <span class="text-danger" id="spantxtTransporte" style="display: none;"></span>
             <br>
             <button class="btn btn-outline-light" onclick="mostraTransportes()">Pesquisar</button>
             <br>
+            <div class="spinner-border text-danger" role="status" id="spinnerTransporte"
+                style="display: none; margin-left: 30%;"></div>
             <br>
             <div style="width:100%; height: 480px; display: none;" id="mapContainerTransporte"></div>
             <br>
