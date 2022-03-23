@@ -2,9 +2,18 @@
 
 function criaMapa() {
 
+    document.getElementById('spantxtHome').innerHTML = "";
+    document.getElementById('spantxtHome').style.display = 'none';
     document.getElementById('cardGroup').style.display = 'none';
     document.querySelector('#mapContainer').innerHTML = "";
     var input = document.querySelector("#txtSearch").value;
+    
+    if (input == "" || input == undefined){
+        document.getElementById('spantxtHome').innerHTML = "Campo vazio!";
+        document.getElementById('spantxtHome').style.display = 'block';
+    }
+
+    document.getElementById('spinnerHome').style.display = 'block';
     document.getElementById('mapContainer').style.display = 'block';
     // Initialize the platform object:
     var platform = new H.service.Platform({
@@ -26,6 +35,8 @@ function criaMapa() {
 
                 error => {
                     reject(error);
+                    document.getElementById('spantxtHome').innerHTML = "Não foi possível encontrar o local :/";
+                    document.getElementById('spantxtHome').style.display = 'block';
                 }
             );
         });
@@ -68,7 +79,7 @@ function criaMapa() {
         const marker = new H.map.Marker({ lat: fresno.Latitude, lng: fresno.Longitude });
         map.addObject(marker);
 
-        //console.log(data.suggestions[])
+        document.getElementById('spinnerHome').style.display = 'none';
 
         for (let i = 0; i < data.suggestions[1].entities.length; i++) {
 
@@ -101,6 +112,8 @@ function criaMapa() {
                     },
                     reject => {
                         reject(error);
+                        document.getElementById('spantxtHome').innerHTML = "Não foi possível encontrar o local :/";
+                        document.getElementById('spantxtHome').style.display = 'block';
                     }
                 );
             });
@@ -158,8 +171,18 @@ function criaMapa() {
 
 
 function sugerir() {
+    
+    document.getElementById('spantxtInteresting').innerHTML = "";
+    document.getElementById('spantxtInteresting').style.display = 'none';
     document.querySelector('#mapContainerSugestao').innerHTML = "";
     var input = document.querySelector("#txtInteresting").value;
+    
+    if (input == "" || input == undefined){
+        document.getElementById('spantxtInteresting').innerHTML = "Campo vazio!";
+        document.getElementById('spantxtInteresting').style.display = 'block';
+    }
+
+    document.getElementById('spinnerLocaisInteressantes').style.display = 'block';
     document.getElementById('mapContainerSugestao').style.display = 'block';
     // Initialize the platform object:
     var platform = new H.service.Platform({
@@ -181,6 +204,8 @@ function sugerir() {
 
                 error => {
                     reject(error);
+                    document.getElementById('spantxtInteresting').innerHTML = "Não foi possível encontrar o local :/";
+                    document.getElementById('spantxtInteresting').style.display = 'block';
                 }
             );
         });
@@ -222,6 +247,8 @@ function sugerir() {
 
         const marker = new H.map.Marker({ lat: fresno.Latitude, lng: fresno.Longitude });
         map.addObject(marker);
+        
+        document.getElementById('spinnerLocaisInteressantes').style.display = 'none';
         //<!------------------------------------------------------------------------------------------------------->
         for (let i = 0; i < data.suggestions[2].entities.length; i++) {
 
@@ -254,6 +281,8 @@ function sugerir() {
                     },
                     reject => {
                         reject(error);
+                        document.getElementById('spantxtInteresting').innerHTML = "Não foi possível encontrar o local :/";
+                        document.getElementById('spantxtInteresting').style.display = 'block';
                     }
                 );
             });
@@ -293,9 +322,26 @@ function sugerir() {
 
 
 function calculaRota() {
+    
+    document.getElementById('spantxtBegin').innerHTML = "";
+    document.getElementById('spantxtBegin').style.display = 'none';
+    document.getElementById('spantxtEnd').innerHTML = "";
+    document.getElementById('spantxtEnd').style.display = 'none';
     document.querySelector('#mapContainerRota').innerHTML = "";
     var inputPartida = document.querySelector("#txtBegin").value;
     var inputChegada = document.querySelector("#txtEnd").value;
+    
+    if (inputPartida == "" || inputPartida == undefined){
+        document.getElementById('spantxtBegin').innerHTML = "Campo vazio!";
+        document.getElementById('spantxtBegin').style.display = 'block';
+    }
+
+    if (inputChegada == "" || inputChegada == undefined){
+        document.getElementById('spantxtEnd').innerHTML = "Campo vazio!";
+        document.getElementById('spantxtEnd').style.display = 'block';
+    }
+
+    document.getElementById('spinnerRota').style.display = 'block';
     document.getElementById('mapContainerRota').style.display = 'block';
 
     // Initialize the platform object:
@@ -320,6 +366,8 @@ function calculaRota() {
 
                 error => {
                     reject(error);
+                    document.getElementById('spantxtEnd').innerHTML = "Não foi possível encontrar o local :/";
+                    document.getElementById('spantxtEnd').style.display = 'block';
                 }
             );
         });
@@ -350,6 +398,8 @@ function calculaRota() {
 
         console.log(partida);
         console.log(chegada);
+
+        document.getElementById('spinnerRota').style.display = 'none';
 
         var routingParameters = {
             'routingMode': 'fast',
@@ -413,9 +463,20 @@ function calculaRota() {
 
 
 
-function mostraTransportes(){
+function mostraTransportes(){   
+
+    
+    document.getElementById('spantxtTransporte').innerHTML = "";
+    document.getElementById('spantxtTransporte').style.display = 'none';
     document.querySelector('#mapContainerTransporte').innerHTML = "";
     var input = document.querySelector("#txtCommuting").value;
+    
+    if (input == "" || input == undefined){
+        document.getElementById('spantxtTransporte').innerHTML = "Campo vazio!";
+        document.getElementById('spantxtTransporte').style.display = 'block';
+    }
+
+    document.getElementById('spinnerTransporte').style.display = 'block';
     document.getElementById('mapContainerTransporte').style.display = 'block';
     // Initialize the platform object:
     var platform = new H.service.Platform({
@@ -437,6 +498,8 @@ function mostraTransportes(){
 
                 error => {
                     reject(error);
+                    document.getElementById('spantxtTransporte').innerHTML = "Não foi possível encontrar o local :/";
+                    document.getElementById('spantxtTransporte').style.display = 'block';
                 }
             );
         });
@@ -478,6 +541,8 @@ function mostraTransportes(){
 
         const marker = new H.map.Marker({ lat: fresno.Latitude, lng: fresno.Longitude });
         map.addObject(marker);
+        
+        document.getElementById('spinnerTransporte').style.display = 'none';
         //<!------------------------------------------------------------------------------------------------------->
         for (let i = 0; i < data.suggestions[3].entities.length; i++) {
 
@@ -510,6 +575,8 @@ function mostraTransportes(){
                     },
                     reject => {
                         reject(error);
+                        document.getElementById('spantxtTransporte').innerHTML = "Não foi possível encontrar o local :/";
+                        document.getElementById('spantxtTransporte').style.display = 'block';
                     }
                 );
             });
