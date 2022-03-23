@@ -19,18 +19,18 @@
     <title>Info Trip</title>
 </head>
 
-<body style="color: #0377fc">
+<body>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="javascript:void(0)" onclick="voltaParaHome()">Home</a>
+        <a href="javascript:void(0)" onclick="abreRota()">Rotas</a>
+        <a href="javascript:void(0)" onclick="abreLocaisInteressantes()">Locais interessantes</a>
+        <a href="javascript:void(0)" onclick="abreTransportes()">Transportes</a>
+        <!--<a href="#">Contact</a>-->
+    </div>
+
     <div data-role="page" id="homePage">
         <div class="container">
-
-            <div id="mySidebar" class="sidebar">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Clients</a>
-                <a href="#">Contact</a>
-            </div>
-
             <div data-role="header">
 
                 <h1
@@ -52,10 +52,46 @@
                 <br>
                 <br>
                 <div style="width:100%; height: 480px; display: none;" id="mapContainer"></div>
+                <br>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <h2 id="tituloHotel" style="text-align: center; display: none; color: snow;">Hoteis</h2>
+            <br>
+            <br>
+            <div class="card-group" id="cardGroup"
+                style="margin-left: 10%; margin-right: 10%; margin-bottom: 5%; display: none;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="hotel1">Card title</h5>
+                        <p class="card-text" id="hotelAddress1"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="hotel2">Card title</h5>
+                        <p class="card-text" id="hotelAddress2"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="hotel3">Card title</h5>
+                        <p class="card-text" id="hotelAddress3">T</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-        <div data-role="footer" style="color: #0377fc" data-position="fixed">
+
+        <div data-role="footer" data-position="fixed">
             <footer class="footer">
                 Gabriel Alves Gouveia
             </footer>
@@ -63,21 +99,233 @@
 
 
     </div>
-    <script src="cordova.js"></script>
-    <script src="js/index.js"></script>
 
-    <script>
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
 
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
 
+
+
+    <div data-role="page" id="locaisInteressantes" style="display: none;">
+        <div data-role="header">
+            <h1 style="color: snow; text-align: center;">
+                <button class="openbtn" onclick="openNav()">☰ </button>
+                Locais interessantes
+            </h1>
+        </div>
+
+        <div data-role="main"
+            style="margin-left: 25%; margin-right: 25%; border: 4px; border-radius: 5px; border-color: snow; border-style: solid; padding: 1em; margin-top: 10%;">
+            <p style="color: snow; font-size: 20px;">
+                Digite o lugar dos sonhos!
+            </p>
+            <input type="text" name="txtLocais" id="txtInteresting" placeholder="Digite qualquer lugar"
+                class="form-control">
+            <br>
+            <button class="btn btn-outline-light" onclick="sugerir()">Pesquisar</button>
+            <br>
+            <br>
+            <div style="width:100%; height: 480px; display: none;" id="mapContainerSugestao"></div>
+            <br>
+            <br>
+            <br>
+            <h1 style="display: none; color: snow; text-align: center;" id="tituloLM"> Pontos interessantes </h1>
+            <br>
+            <br>
+            <div class="card-group" id="cardGroupLandMarks"
+                style="margin-left: 10%; margin-right: 10%; margin-bottom: 5%; display: none;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="lm1">Card title</h5>
+                        <p class="card-text" id="lmark1"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="lm2">Card title</h5>
+                        <p class="card-text" id="lmark2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div data-role="footer" data-position="fixed">
+            <footer class="footer">
+                Gabriel Alves Gouveia
+            </footer>
+        </div>
+
+    </div>
+
+
+    <div data-role="page" id="pageRoute" style="display: none;">
+        <div data-role="header">
+            <h1 style="color: snow; text-align: center;">
+                <button class="openbtn" onclick="openNav()">☰ </button>
+                Como chegar?
+            </h1>
+        </div>
+
+        <div data-role="main"
+            style="margin-left: 25%; margin-right: 25%; border: 4px; border-radius: 5px; border-color: snow; border-style: solid; padding: 1em; margin-top: 10%;">
+            <p style="color: snow; font-size: 20px;">
+                Ponto de partida:
+            </p>
+            <input type="text" name="txtPartida" id="txtBegin" placeholder="Digite qualquer lugar de início"
+                class="form-control">
+            <br>
+            <br>
+            <p style="color: snow; font-size: 20px;">
+                Ponto de chegada:
+            </p>
+            <input type="text" name="txtChegada" id="txtEnd" placeholder="Digite qualquer lugar de chegada"
+                class="form-control">
+            <button class="btn btn-outline-light" onclick="calculaRota()">Pesquisar</button>
+            <br>
+            <br>
+            <div style="width:100%; height: 480px; display: none;" id="mapContainerRota"></div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <footer class="footer">
+                Gabriel Alves Gouveia
+            </footer>
+        </div>
+
+    </div>
+
+
+    <div data-role="page" id="pageTransporte" style="display: none;">
+        <div data-role="header">
+            <h1 style="color: snow; text-align: center;">
+                <button class="openbtn" onclick="openNav()">☰ </button>
+                Transportes do local
+            </h1>
+        </div>
+
+        <div data-role="main"
+            style="margin-left: 25%; margin-right: 25%; border: 4px; border-radius: 5px; border-color: snow; border-style: solid; padding: 1em; margin-top: 10%;">
+            <p style="color: snow; font-size: 20px;">
+                Digite um lugar para pesquisar os transportes:
+            </p>
+            <input type="text" name="txtTransportes" id="txtCommuting" placeholder="Digite qualquer lugar"
+                class="form-control">
+            <br>
+            <button class="btn btn-outline-light" onclick="mostraTransportes()">Pesquisar</button>
+            <br>
+            <br>
+            <div style="width:100%; height: 480px; display: none;" id="mapContainerTransporte"></div>
+            <br>
+            <br>
+            <br>
+            <h1 style="display: none; color: snow; text-align: center;" id="tituloTransporte"> Transportes encontrados: </h1>
+            <br>
+            <br>
+            <div class="card-group" id="cardGroupTransporte"
+                style="margin-left: 10%; margin-right: 10%; margin-bottom: 5%; display: none;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="tr1">Card title</h5>
+                        <p class="card-text" id="transp1"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="tr2">Card title</h5>
+                        <p class="card-text" id="transp2"></p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <footer class="footer">
+                Gabriel Alves Gouveia
+            </footer>
+        </div>
+
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+
+            function abreLocaisInteressantes() {
+                document.getElementById("homePage").style.display = 'none';
+                document.getElementById("pageRoute").style.display = 'none';
+                document.getElementById("locaisInteressantes").style.display = 'block';
+                document.getElementById("pageTransporte").style.display = 'none';
+            }
+
+            function fechaLocaisInteressantes() {
+                document.getElementById("homePage").style.display = 'block';
+                document.getElementById("locaisInteressantes").style.display = 'none';
+            }
+
+            function abreRota() {
+                document.getElementById("homePage").style.display = 'none';
+                document.getElementById("locaisInteressantes").style.display = 'none';
+                document.getElementById("pageRoute").style.display = 'block';
+                document.getElementById("pageTransporte").style.display = 'none';
+            }
+
+            function fechaRota() {
+                document.getElementById("homePage").style.display = 'block';
+                document.getElementById("pageRoute").style.display = 'none';
+                document.getElementById("pageTransporte").style.display = 'none';
+            }
+
+            function voltaParaHome() {
+                if (document.getElementById("locaisInteressantes").style.display == 'block') {
+                    document.getElementById("locaisInteressantes").style.display = 'none';
+                }
+
+                if (document.getElementById("pageRoute").style.display = 'block') {
+                    document.getElementById("pageRoute").style.display = 'none';
+                }
+
+                if (document.getElementById("pageTransporte").style.display == 'block'){
+                    document.getElementById("pageTransporte").style.display = 'none';
+                }
+                document.getElementById("homePage").style.display = 'block';
+            }
+
+            function abreTransportes(){
+                document.getElementById("homePage").style.display = 'none';
+                document.getElementById("locaisInteressantes").style.display = 'none';
+                document.getElementById("pageRoute").style.display = 'none';
+                document.getElementById("pageTransporte").style.display = 'block';
+            }
+
+        </script>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 </body>
 
 </html>
