@@ -19,6 +19,15 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+
+function getWheaterApi() {
+    var local = "Sao Paulo"
+    fetch("http://api.openweathermap.org/data/2.5/weather?q=SaoPaulo&APPID=01f3f0d40cf965e5416ea9db3a061baf")
+        .then(response => response.json())
+        .then(data => console.log(data))
+    .catch(error => alert("City doesn't exist!"))      
+}
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
@@ -26,4 +35,5 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    getWheaterApi();
 }
