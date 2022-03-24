@@ -1,6 +1,4 @@
-﻿
-
-function criaMapa() {
+﻿function criaMapa() {
 
     document.getElementById('spantxtHome').innerHTML = "";
     document.getElementById('spantxtHome').style.display = 'none';
@@ -78,7 +76,7 @@ function criaMapa() {
 
         const marker = new H.map.Marker({ lat: fresno.Latitude, lng: fresno.Longitude });
         map.addObject(marker);
-
+       
         document.getElementById('spinnerHome').style.display = 'none';
 
         for (let i = 0; i < data.suggestions[1].entities.length; i++) {
@@ -126,14 +124,6 @@ function criaMapa() {
                 Longitude: data.suggestions[1].entities[i].longitude
             });
 
-            // let cidade = location.Response.View[0].Result[0].Location.Address.City;
-            // let pais = location.Response.View[0].Result[0].Location.Address.Country;
-            // let county = location.Response.View[0].Result[0].Location.Address.County;
-            // let district = location.Response.View[0].Result[0].Location.Address.District;
-            // let houseNumber = location.Response.View[0].Result[0].Location.Address.HouseNumber;
-
-            console.log(location);
-
             if (i == 0) {
                 document.querySelector('#hotelAddress1').innerHTML = location.Response.View[0].Result[0].Location.Address.Label;
             }
@@ -150,25 +140,6 @@ function criaMapa() {
     }
     start();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function sugerir() {
     
@@ -313,14 +284,6 @@ function sugerir() {
     start();
 }
 
-
-
-
-
-
-
-
-
 function calculaRota() {
     
     document.getElementById('spantxtBegin').innerHTML = "";
@@ -354,7 +317,6 @@ function calculaRota() {
     const geocoder = query => {
         return new Promise((resolve, reject) => {
 
-
             geocoderService.geocode(
                 {
                     "searchText": query
@@ -372,7 +334,6 @@ function calculaRota() {
             );
         });
     }
-
 
     ////////////////////// ALTERAR A FUNCTION ASYNC ABAIXO, QUE É LONGA //////////////////////// 
 
@@ -596,8 +557,3 @@ function mostraTransportes(){
 
     start();
 }
-
-
-
-
-
