@@ -449,23 +449,14 @@ function calculaRota() {
                 alert(error.message);
             });
 
-
         //<!------------------------------------------------------------------------------------------------------->       
         
     }
+
     start();
 }
 
-
-
-
-
-
-
-
 function mostraTransportes(){   
-
-    
     document.getElementById('spantxtTransporte').innerHTML = "";
     document.getElementById('spantxtTransporte').style.display = 'none';
     document.querySelector('#mapContainerTransporte').innerHTML = "";
@@ -478,6 +469,7 @@ function mostraTransportes(){
 
     document.getElementById('spinnerTransporte').style.display = 'block';
     document.getElementById('mapContainerTransporte').style.display = 'block';
+
     // Initialize the platform object:
     var platform = new H.service.Platform({
         'apikey': 'EAQxY6dxBYJCDIN5wPqfjVO-_jp3OSwd0sh4hs6j1xU'
@@ -485,7 +477,6 @@ function mostraTransportes(){
     const geocoderService = platform.getGeocodingService();
     const geocoder = query => {
         return new Promise((resolve, reject) => {
-
 
             geocoderService.geocode(
                 {
